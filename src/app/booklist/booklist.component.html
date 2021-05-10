@@ -1,1 +1,48 @@
-<p>booklist works!</p>
+
+<div class="container p-5">
+    <h2>Available books</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let temp of bookList">
+            <div class="card mb-3" style="max-width: 340px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="..." alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{temp.title}}</h5>
+                      <h6 class="card-text">Author: {{temp.author}}</h6>
+                      <h6 class="card-text">Genre: {{temp.genre}}</h6>
+                      <h6 class="card-text">Cost {{temp.cost | currency}}</h6>
+                      <a href="#" class="btn btn-primary">Rent</a>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="container p-5">
+        <h2>Current Order</h2>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Cost</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-primary">Submit Order</button>
+    </div>
