@@ -11,6 +11,7 @@ import { EmployeenavComponent } from './employeenav/employeenav.component';
 import { BookInventoryComponent } from './bookinventory/bookinventory.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { OrdersComponent } from './orders/orders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     EmployeehomeComponent,
     EmployeenavComponent,
     BookInventoryComponent,
-    BooklistComponent
+    BooklistComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule, 
@@ -32,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
       {path: 'booklist', component: BooklistComponent},
       {path: 'customerhome',component: CustomerhomeComponent},
       {path: 'employeehome',component: EmployeehomeComponent},
-      {path: 'bookinventory',component: BookInventoryComponent}
+      {path: 'bookinventory',component: BookInventoryComponent},
+      {path: 'orderList',component: OrdersComponent}
     ])
   ],
   providers: [
