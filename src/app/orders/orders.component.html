@@ -1,0 +1,33 @@
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Order Id</th>
+            <th scope="col">Total Cost</th>
+            <th scope="col">IsApproved</th>
+            <th scope="col">Date</th> 
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let temp of ordersList">
+            <td>{{temp.orderid}}</td>
+            <td>{{temp.totalcost}}</td>
+            <td>{{temp.isapproved}}</td>
+            <td>{{temp.date}}</td>
+        </tr>
+    </tbody>
+  </table>
+<div>
+  <!--  <form [formGroup] = "orderGroup">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Order id</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="orderid">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Total Cost</label>
+          <input type="text" class="form-control" id="exampleInputPassword1" formControlName="totalcost">
+        </div>
+        <button type="submit" class="btn btn-primary" (click) = "submitOrder(orderGroup)">Submit</button>
+      </form>
+      -->
+</div>
+
