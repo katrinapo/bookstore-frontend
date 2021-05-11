@@ -1,4 +1,4 @@
 export class Orders{
-    constructor(public orderid:number, public totalcost:number, public isapproved: boolean, public date:Date){
+    constructor(public orderId:number, public totalCost:number, public isapproved: boolean, public date:Date, public bookuser: String){
     }
 }

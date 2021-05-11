@@ -12,6 +12,7 @@
             <th scope="col">Author</th>
             <th scope="col">Quantity</th>
             <th scope="col">Cost</th>
+            <th scope="col">Image</th>
             <th scope="col">Actions</th>
             <th scope="col"></th>
           </tr>
@@ -23,8 +24,9 @@
             <td>{{temp.author}}</td>
             <td>{{temp.quantity}}</td>
             <td>{{temp.cost}}</td>
+            <td><img src={{temp.image}}/></td>
             <td>
-              <button type="button" class="btn btn-primary" >Show Details</button>
+              <button type="button" class="btn btn-primary" >Edit</button>
             </td>
           </tr>
         </tbody>
