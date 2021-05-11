@@ -1,1 +1,28 @@
-<p>booklist works!</p>
+<div class="container row">
+    <div class="col-md-6">
+      <table class="table">
+        <thead class="">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Book Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Actions</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let temp of bookList">
+            <td>{{temp.bookId}}</td>
+            <td>{{temp.title}}</td>
+            <td>{{temp.author}}</td>
+            <td>{{temp.quantity}}</td>
+            <td>{{temp.cost}}</td>
+            <td>
+              <button type="button" class="btn btn-primary" >Show Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
