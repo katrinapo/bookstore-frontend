@@ -39,8 +39,9 @@ export class RegistrationComponent implements OnInit {
         }
       },
       error=> {
+     console.log(error.error.message);
        
-        confirm("User Already exists in System!!");
+        confirm(error.error.message);
         
   }
     )
