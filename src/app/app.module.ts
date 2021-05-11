@@ -12,6 +12,8 @@ import { BookInventoryComponent } from './bookinventory/bookinventory.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersComponent } from './orders/orders.component';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,9 @@ import { OrdersComponent } from './orders/orders.component';
     EmployeenavComponent,
     BookInventoryComponent,
     BooklistComponent,
-    OrdersComponent
+    OrdersComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule, 
@@ -35,7 +39,10 @@ import { OrdersComponent } from './orders/orders.component';
       {path: 'customerhome',component: CustomerhomeComponent},
       {path: 'employeehome',component: EmployeehomeComponent},
       {path: 'bookinventory',component: BookInventoryComponent},
-      {path: 'orderList',component: OrdersComponent}
+      {path: 'orderList',component: OrdersComponent},
+      {path: 'registration',component: RegistrationComponent},
+      {path: '',component:LoginComponent},
+      {path: 'login',component:LoginComponent}
     ])
   ],
   providers: [
