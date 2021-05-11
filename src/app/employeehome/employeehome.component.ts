@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class EmployeehomeComponent implements OnInit {
 
   constructor() { }
-
+  msg='';
   ngOnInit(): void {
+    this.msg=localStorage.getItem('userName');
   }
 
 }

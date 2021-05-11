@@ -1,6 +1,6 @@
-import { Route } from '@angular/compiler/src/core';
+
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
+
 import { Router } from '@angular/router';
 import { RegistrationService } from '../services/registration.service';
 import { BookUser } from '../user';
@@ -12,7 +12,8 @@ import { BookUser } from '../user';
 export class LoginComponent implements OnInit {
  msg = "";
   user = new BookUser();
-
+  user2=new BookUser();
+  userRole='';
   constructor(private _service:RegistrationService ,private _route:Router) { }
 
   ngOnInit(): void {
@@ -20,8 +21,16 @@ export class LoginComponent implements OnInit {
 
   loginUser(){
     this._service.loginUserFromRemote(this.user).subscribe(
-      data => {console.log("response recieved");
-      this._route.navigate(['./customerhome']);
+      response => {console.log("response recieved");
+       
+        this.user2=response;
+      localStorage.setItem('userName',this.user.userName);
+     this.userRole= response.userRole;
+     if(this.userRole=="Customer"){
+      this._route.navigate(['./customerhome']);}
+      else{
+        this._route.navigate(['./employeehome']);
+      }
     },
       error=> {console.log("Exception occured");
       this.msg="Please enter valid username and password";
@@ -32,5 +41,7 @@ export class LoginComponent implements OnInit {
   registerUser(){
     this._route.navigate(['./registration']);
   }
+
+  
 
 }
