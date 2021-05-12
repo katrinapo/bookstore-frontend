@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Subscriber } from 'rxjs';
 import { Book } from '../book';
 import { BookService } from '../services/book.service';
 
@@ -13,7 +14,7 @@ export class BookInventoryComponent implements OnInit {
   bookList: Book[];
 
   bookGroup =  new FormGroup({
-    //bookId: new FormControl(''),
+    
     title: new FormControl(''),
     author: new FormControl(''),
     genre: new FormControl(''),
@@ -39,10 +40,16 @@ export class BookInventoryComponent implements OnInit {
     this.bookServ.postBook(stringBook).subscribe(
       response => {
         console.log(response);
+        
         this.bookList.push(response);
       }
     )
   }
 
-  
+  public updateBook(book: FormGroup) {
+    console.log('update clicked');
+    console.log(book);
+    let stringBook = JSON.stringify(book.value);
+    this.bookServ.updateBook(book);
+  }
 }
