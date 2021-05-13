@@ -12,7 +12,7 @@ export class EnteremailComponent implements OnInit {
 
   message="";
   user = new BookUser();
-  email:string;
+  email:BookUser["email"];
   
 
   constructor(private _service:UsersService, private _route:Router) { }
@@ -23,6 +23,8 @@ export class EnteremailComponent implements OnInit {
   checkEmail(){
     this._service.checkIfEmailExists(this.email).subscribe(
       data =>{console.log("response received");
+              console.log(data);
+      this.message="Please check your email to reset password with the link provided";
       this._route.navigate(['/enterpassword']);
     }, 
     error =>{console.log("Exception occured");
