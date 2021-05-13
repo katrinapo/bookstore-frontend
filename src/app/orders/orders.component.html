@@ -1,3 +1,4 @@
+<div class="container p-5">
 <table class="table table-dark table-striped">
     <thead>
         <tr>
@@ -5,18 +6,21 @@
             <th scope="col">Total Cost</th>
             <th scope="col">IsApproved</th>
             <th scope="col">Date</th> 
+            <th scope="col">Customer Name</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let temp of ordersList">
-            <td>{{temp.orderid}}</td>
-            <td>{{temp.totalcost}}</td>
+            <td>{{temp.orderId}}</td>
+            <td>{{temp.totalCost}}</td>
             <td>{{temp.isapproved}}</td>
             <td>{{temp.date}}</td>
+            <td>{{temp.bookuser}}</td>
         </tr>
     </tbody>
   </table>
 <div>
+</div>
   <!--  <form [formGroup] = "orderGroup">
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Order id</label>

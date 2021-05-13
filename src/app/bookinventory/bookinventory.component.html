@@ -2,29 +2,33 @@
 
 <h1 class="p-5"> Book Inventory</h1> 
 
+
+
 <div class="container row">
     <div class="col-md-6">
       <table class="table">
         <thead class="">
           <tr>
-            <th scope="col">ID</th>
+          
             <th scope="col">Book Title</th>
             <th scope="col">Author</th>
             <th scope="col">Quantity</th>
             <th scope="col">Cost</th>
+            <th scope="col">Image</th>
             <th scope="col">Actions</th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let temp of bookList">
-            <td>{{temp.bookId}}</td>
+ 
             <td>{{temp.title}}</td>
             <td>{{temp.author}}</td>
             <td>{{temp.quantity}}</td>
             <td>{{temp.cost}}</td>
+            <td><img src={{temp.image}}/></td>
             <td>
-              <button type="button" class="btn btn-primary" >Show Details</button>
+              <button type="button" class="btn btn-primary" >Edit</button>
             </td>
           </tr>
         </tbody>
@@ -38,6 +42,7 @@
           <label for="exampleInputEmail1">Id</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="bookId">
         </div>-->
+
         <div class="form-group">
           <label for="exampleInputEmail1">Title</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="title">
@@ -62,8 +67,9 @@
           <input type="text" class="form-control" id="exampleInputPassword1" formControlName="quantity">
         </div>
 
-
         <button type="submit" class="btn btn-primary" (click) = "submitBook(bookGroup)">Submit</button>
+      <!-- <button type="submit" class="btn btn-primary" (click) = "updateBook(bookGroup)">Update</button> -->
       </form>
     </div>
   </div>
+
