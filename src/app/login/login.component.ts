@@ -33,4 +33,5 @@ export class LoginComponent implements OnInit {
     this._route.navigate(['./registration']);
   }
 
+
 }
