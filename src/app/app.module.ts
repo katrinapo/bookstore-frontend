@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrdersComponent } from './orders/orders.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { EnteremailComponent } from './enteremail/enteremail.component';
+import { CreatepasswordComponent } from './createpassword/createpassword.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,9 @@ import { RegistrationComponent } from './registration/registration.component';
     BooklistComponent,
     OrdersComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    EnteremailComponent,
+    CreatepasswordComponent
   ],
   imports: [
     BrowserModule, 
@@ -42,7 +46,9 @@ import { RegistrationComponent } from './registration/registration.component';
       {path: 'orderList',component: OrdersComponent},
       {path: 'registration',component: RegistrationComponent},
       {path: '',component:LoginComponent},
-      {path: 'login',component:LoginComponent}
+      {path: 'login',component:LoginComponent},
+      {path:'enteremail',component:EnteremailComponent},
+      {path:'createpassword', component:CreatepasswordComponent}
     ])
   ],
   providers: [
