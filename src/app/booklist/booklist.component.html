@@ -1,3 +1,33 @@
+<<<<<<< HEAD
+<div class="container row">
+    <div class="col-md-6">
+      <table class="table">
+        <thead class="">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Book Title</th>
+            <th scope="col">Author</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Actions</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let temp of bookList">
+            <td>{{temp.bookId}}</td>
+            <td>{{temp.title}}</td>
+            <td>{{temp.author}}</td>
+            <td>{{temp.quantity}}</td>
+            <td>{{temp.cost}}</td>
+            <td>
+              <button type="button" class="btn btn-primary" >Show Details</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+=======
 <div class="container p-5">
     <h2>Available books</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -44,3 +74,4 @@
           </table>
           <button class="btn btn-primary">Submit Order</button>
     </div>
+>>>>>>> bcb1048587f5cd0553974feb9e9a6edf206dd31a
