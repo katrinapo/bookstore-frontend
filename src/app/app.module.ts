@@ -47,11 +47,7 @@ import { CreatepasswordComponent } from './createpassword/createpassword.compone
       {path: 'customerhome',component: CustomerhomeComponent},
       {path: 'employeehome',component: EmployeehomeComponent},
       {path: 'bookinventory',component: BookInventoryComponent},
-
-      {path: 'orderList',component: OrdersComponent}
-    ]),
-    NgbModule,
-
+      {path: 'orderList',component: OrdersComponent},
       {path: 'orderList',component: OrdersComponent},
       {path: 'registration',component: RegistrationComponent},
       {path: '',component:LoginComponent},
