@@ -23,3 +23,26 @@ Welcome {{msg}}
         </tbody>
       </table>
     </div>
+    <div class="container p-5">
+      <table class="table table-dark table-striped">
+          <thead>
+              <tr>
+                  <th scope="col">Order Id</th>
+                  <th scope="col">Total Cost</th>
+                  <th scope="col">IsApproved</th>
+                  <th scope="col">Date</th> 
+                
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let temp of ordersList">
+                  <td>{{temp.orderId}}</td>
+                  <td>{{temp.totalCost}}</td>
+                  <td>{{temp.isapproved}}</td>
+                  <td>{{temp.date}}</td>
+                
+              </tr>
+          </tbody>
+        </table>
+      <div>
+      </div>

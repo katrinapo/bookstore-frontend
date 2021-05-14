@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { EnteremailComponent } from './enteremail/enteremail.component';
 import { CreatepasswordComponent } from './createpassword/createpassword.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { CreatepasswordComponent } from './createpassword/createpassword.compone
     LoginComponent,
     RegistrationComponent,
     EnteremailComponent,
-    CreatepasswordComponent
+    CreatepasswordComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule, 
@@ -48,7 +50,8 @@ import { CreatepasswordComponent } from './createpassword/createpassword.compone
       {path: '',component:LoginComponent},
       {path: 'login',component:LoginComponent},
       {path:'enteremail',component:EnteremailComponent},
-      {path:'createpassword', component:CreatepasswordComponent}
+      {path:'createpassword', component:CreatepasswordComponent},
+      {path:'checkout',component:CheckoutComponent}
     ])
   ],
   providers: [

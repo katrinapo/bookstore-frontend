@@ -1,33 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { Book } from '../bookinventory/book';
-import { BookService } from '../services/book.service';
-
-=======
+import { Router } from '@angular/router';
 import { Book } from '../book';
+import { Orders } from '../orders/Orders';
 import { BookService } from '../services/book.service';
->>>>>>> bcb1048587f5cd0553974feb9e9a6edf206dd31a
+import { OrdersService } from '../services/orders.service';
 @Component({
   selector: 'app-booklist',
   templateUrl: './booklist.component.html',
   styleUrls: ['./booklist.component.css']
 })
 export class BooklistComponent implements OnInit {
-<<<<<<< HEAD
-  bookList: Book[];
-  constructor(private bookServ: BookService) { }
-=======
 
   bookList: Book[];
->>>>>>> bcb1048587f5cd0553974feb9e9a6edf206dd31a
+  
+  ordersList:any=[];
+   amount=0;
+ 
 
-  constructor(private bookServ: BookService) { }
+  constructor(private bookServ: BookService, private oServ:OrdersService, private _router:Router) { }
   ngOnInit(): void {
     this.bookServ.getAllBooks().subscribe(
       response => {
         console.log(response);
         this.bookList=response;
+        
       }
     )
   }
+  public addToList(bookList){
+    this.ordersList.push(bookList);
+   
+    this.amount+= parseInt(bookList.cost);
+    console.log(this.ordersList);
+    console.log(this.amount);
+    console.log(bookList);
+
+  }
+  public submitOrder(){
+      console.log(this.ordersList);
+      console.log(this.amount);
+    
+      this.oServ.postOrder(this.ordersList,this.amount).subscribe(
+        response => {
+          console.log(response);
+          this._router.navigate(['./checkout']);
+        }
+      )
+  }
+
 }

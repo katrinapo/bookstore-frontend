@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Book } from '../book';
 import { Orders } from '../orders/Orders';
 
 @Injectable({
@@ -22,15 +23,28 @@ export class OrdersService {
     return this.httpCli.get<Orders[]>(this.urlBase, httpHead);
   }
 
-  public postOrder(bookorders): Observable<Orders>{
+  public postOrder(bookList,amount){
     const httpHead={
       headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin':'*'
       })
     };
-    return this.httpCli.post<Orders>(this.urlBase, bookorders, httpHead);
+    return this.httpCli.post('http://localhost:9020/bookorders/submitorder?amount='+amount+"&userName="+localStorage.getItem('userName'), bookList, httpHead);
   }
+
+  public getOrders(): Observable<Orders[]> {
+    const httpHead={
+      headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin':'*'
+      })
+    };
+
+    return this.httpCli.get<Orders[]>(this.urlBase+"/ordersbyuser?userName="+localStorage.getItem('userName'), httpHead);
+  }
+
+  
 }
 
 
