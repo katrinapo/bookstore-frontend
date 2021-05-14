@@ -3,7 +3,10 @@ import { Router } from '@angular/router';
 import { Book } from '../book';
 import { Orders } from '../orders/Orders';
 import { BookService } from '../services/book.service';
+
 import { OrdersService } from '../services/orders.service';
+
+
 @Component({
   selector: 'app-booklist',
   templateUrl: './booklist.component.html',
@@ -12,11 +15,10 @@ import { OrdersService } from '../services/orders.service';
 export class BooklistComponent implements OnInit {
 
   bookList: Book[];
-  
+
   ordersList:any=[];
    amount=0;
  
-
   constructor(private bookServ: BookService, private oServ:OrdersService, private _router:Router) { }
   ngOnInit(): void {
     this.bookServ.getAllBooks().subscribe(

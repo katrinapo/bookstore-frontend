@@ -33,6 +33,7 @@ export class OrdersService {
     return this.httpCli.post('http://localhost:9020/bookorders/submitorder?amount='+amount+"&userName="+localStorage.getItem('userName'), bookList, httpHead);
   }
 
+
   public getOrders(): Observable<Orders[]> {
     const httpHead={
       headers: new HttpHeaders({
@@ -45,6 +46,11 @@ export class OrdersService {
   }
 
   
+
+  public approveOrder(order) {
+    return this.httpCli.put(this.urlBase + '/approve?orderid=', order.orderid)
+  }
+
 }
 
 

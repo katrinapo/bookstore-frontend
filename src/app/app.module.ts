@@ -12,11 +12,14 @@ import { BookInventoryComponent } from './bookinventory/bookinventory.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersComponent } from './orders/orders.component';
+
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { EnteremailComponent } from './enteremail/enteremail.component';
 import { CreatepasswordComponent } from './createpassword/createpassword.component';
+
 import { CheckoutComponent } from './checkout/checkout.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,11 +31,13 @@ import { CheckoutComponent } from './checkout/checkout.component';
     BookInventoryComponent,
     BooklistComponent,
     OrdersComponent,
+
     LoginComponent,
     RegistrationComponent,
     EnteremailComponent,
     CreatepasswordComponent,
     CheckoutComponent
+
   ],
   imports: [
     BrowserModule, 
@@ -46,6 +51,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
       {path: 'employeehome',component: EmployeehomeComponent},
       {path: 'bookinventory',component: BookInventoryComponent},
       {path: 'orderList',component: OrdersComponent},
+      {path: 'orderList',component: OrdersComponent},
       {path: 'registration',component: RegistrationComponent},
       {path: '',component:LoginComponent},
       {path: 'login',component:LoginComponent},
@@ -53,6 +59,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
       {path:'createpassword', component:CreatepasswordComponent},
       {path:'checkout',component:CheckoutComponent}
     ])
+
   ],
   providers: [
 

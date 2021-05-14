@@ -11,14 +11,23 @@ import { Orders } from './Orders';
 export class OrdersComponent implements OnInit {
 
   ordersList: Orders[];
-  orderGroup = new FormGroup({
 
-    orderid: new FormControl(''),
+  orderGroup = new FormGroup({
+    orderId: new FormControl(''),
     totalcost: new FormControl(''),
     isapproved: new FormControl(''),
     date: new FormControl(''),
 
   });
+
+  approveGroup = new FormGroup({
+    orderId: new FormControl(''),
+  });
+
+
+  orderToApprove = {
+    orderId: ""
+  }
   constructor(private oServ: OrdersService) {}
 
   ngOnInit(): void {
@@ -30,5 +39,32 @@ export class OrdersComponent implements OnInit {
     )
   }
 
+  display = "none";
+  openModal() {
+    this.display = "block";
+  }
+  onCloseHandled() {
+    this.display = "none";
+  }
+
+  openModalOrder(order) {
+    this.openModal();
+    this.select(order);
+    
+  }
+
+  public select(order) {
+    this.orderToApprove = order;
+  }
+
+  public approveOrder() {
+    this.oServ.approveOrder(this.orderToApprove).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
+    alert("approved!");
+    this.onCloseHandled();
+  }
 
 }

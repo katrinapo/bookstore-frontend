@@ -9,13 +9,17 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       
         <div class="navbar-nav">
-          <a class="btn btn-outline-success" aria-current="page" href="/customerhome">Profile</a>
-          <a class="btn btn-outline-success" href="/booklist">Home</a>
+
+          <a class="nav-link active" aria-current="page" routerLink="/customerhome">Home</a>
+          <a class="btn btn-outline-success" aria-current="page" routerLink="/customerhome">Profile</a>
+          <a class="nav-link" routerLink="/booklist">Booklist</a>
           <a class="btn btn-outline-success" href="" (click)="logoutUser()" aria-disabled="true">Logout</a>
-        
+
         </div>
       </div>
     </div>
   </nav>
+
   
 <router-outlet></router-outlet>
+
