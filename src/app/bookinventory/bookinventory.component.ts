@@ -59,7 +59,7 @@ export class BookInventoryComponent implements OnInit {
   constructor(private bookServ: BookService, private uServ : UploadImageServiceService) { }
 
   ngOnInit(): void {
-    this.bookServ.getAllBooks().subscribe(
+    this.bookServ.  getAllBooks().subscribe(
       response => {
         console.log(response);
         this.bookList=response;
