@@ -2,8 +2,6 @@
 
 <h1 class="p-5"> Book Inventory</h1> 
 
-
-
 <div class="container row">
     <div class="col-md-6">
       <table class="table">
@@ -20,20 +18,22 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let temp of bookList">
- 
-            <td>{{temp.title}}</td>
-            <td>{{temp.author}}</td>
-            <td>{{temp.quantity}}</td>
-            <td>{{temp.cost}}</td>
-            <td><img src={{temp.image}}/></td>
+          <tr *ngFor="let book of bookList">
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.quantity}}</td>
+            <td>{{book.cost}}</td>
+            <td *ngIf="book.image"><img src={{book.image}}/></td>
+            <td *ngIf="!book.image"><button (click)="openImageModal(book)" class="btn btn-info">Upload image</button></td>
             <td>
-              <button type="button" class="btn btn-primary" >Edit</button>
+              <button type="button" class="btn btn-info btn-sm" (click)="openEditModal(book)">Edit</button>
+              <button type="button" class="btn btn-danger btn-sm">Delete</button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+    
     <div class="col-md-6 pl-3">
       <h4 class="text-center">View Book Details/Add Book</h4>
 
@@ -42,7 +42,6 @@
           <label for="exampleInputEmail1">Id</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="bookId">
         </div>-->
-
         <div class="form-group">
           <label for="exampleInputEmail1">Title</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="title">
@@ -68,8 +67,88 @@
         </div>
 
         <button type="submit" class="btn btn-primary" (click) = "submitBook(bookGroup)">Submit</button>
-      <!-- <button type="submit" class="btn btn-primary" (click) = "updateBook(bookGroup)">Update</button> -->
       </form>
+
     </div>
-  </div>
+
+        <!--image modal-->
+        <div class="modal imageModal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display1}">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title">Add Image</h4>
+              </div>
+              <div class="modal-body">
+              <form [formGroup] = "imageGroup">
+                <input class="form-control" type="text" [(ngModel)]="bookToAddImage.title" formControlName="title" readonly>
+                <div class="input-group mb-3">
+                  <div class="custom-file">
+                    <div class="form-group pt-3">
+                      <input class="form-control-file" type="file" (change)="upload($event)"  formControlName="file" [(ngModel)]="bookToAddImage.image">
+                    </div>
+                  </div>
+                  <div class="input-group-append pt-3">
+                    <button class="input-group-text"  (click)="uploadImage()">Upload</button>
+                  </div>
+                </div>
+    
+              </form>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" (click)="closeImageModal()" >Close</button>
+              </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+     
+    <!--Edit Modal-->
+    <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+     <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Update Book</h4>
+                          <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                         </div>
+                <div class="modal-body">
+                  <form [formGroup] = "updateGroup" (ngSubmit)="updateBook()" class="p-3">
+                    <!--<div class="form-group">
+                      <label for="exampleInputEmail1">Id</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="bookId">
+                    </div>-->
+            
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Title</label>
+                      <input type="text" class="form-control" [(ngModel)]="bookToUpdate.title" id="title" aria-describedby="emailHelp" formControlName="title">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Author</label>
+                      <input type="text" class="form-control"  [(ngModel)]="bookToUpdate.author" id="author" formControlName="author">
+                    </div>
+            
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Genre</label>
+                      <input type="text" class="form-control"  [(ngModel)]="bookToUpdate.genre" id="genre" formControlName="genre">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Cost</label>
+                      <input type="text" class="form-control"  [(ngModel)]="bookToUpdate.cost" id="cost" formControlName="cost">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Quantity</label>
+                      <input type="text" class="form-control"  [(ngModel)]="bookToUpdate.quantity" id="quantity" formControlName="quantity">
+                    </div>
+                    <button type="submit" class="btn btn-primary" >Submit</button>
+                  </form>
+
+                  <div>
+                  </div>
+                  </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
+                    </div>
+            </div>
+      </div>  
+    </div>
+</div>
 

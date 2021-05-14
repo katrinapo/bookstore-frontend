@@ -31,6 +31,10 @@ export class OrdersService {
     };
     return this.httpCli.post<Orders>(this.urlBase, bookorders, httpHead);
   }
+
+  public approveOrder(order) {
+    return this.httpCli.put(this.urlBase + '/approve?orderid=', order.orderid)
+  }
 }
 
 

@@ -6,6 +6,6 @@ export class Book {
     public cost: number,
     public quantity: number,
     public image?: string,
-    public bookId?: number
+    public bookId?: number,
     ) {}
 }
