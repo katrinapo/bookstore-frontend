@@ -8,12 +8,12 @@
                     <div class="card">
                         <div class="card-header">Register</div>
                         <div class="card-body">
-                            <form name="my-form" [formGroup] = "userGroup" >
+                            <form name="my-form" [formGroup] = "userGroup">
                                 <br>
                                 <div class="form-group row">
                                     <label for="first_name" class="col-md-4 col-form-label text-md-right">First Name</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name="firstName" formControlName="firstName">
+                                        <input type="text" class="form-control" name="firstName" formControlName="firstName" >
                                     </div>
                                 </div>
                                 <br>
@@ -41,7 +41,7 @@
                                 <div class="form-group row">
                                     <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name="passWord" formControlName="passWord">
+                                        <input type="password" class="form-control" name="passWord" formControlName="passWord">
                                     </div>
                                 </div>
                                 <br>
@@ -60,11 +60,11 @@
                                
                                 <br>
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary" (click) = "submitUser(userGroup)">
+                                        <button type="submit"  [disabled]="!userGroup.valid" class="btn btn-primary" (click) = "submitUser(userGroup)">
                                         Register
                                         </button>
                                     </div>
-                                {{msg}}
+                               
                             </form>
                         </div>
                     </div>

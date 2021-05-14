@@ -25,9 +25,10 @@ export class LoginComponent implements OnInit {
        
         this.user2=response;
       localStorage.setItem('userName',this.user.userName);
+      
      this.userRole= response.userRole;
-     if(this.userRole=="Customer"){
-      this._route.navigate(['./customerhome']);}
+     if(this.userRole=="customer"){
+      this._route.navigate(['./booklist']);}
       else{
         this._route.navigate(['./employeehome']);
       }

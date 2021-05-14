@@ -1,33 +1,6 @@
-<<<<<<< HEAD
-<div class="container row">
-    <div class="col-md-6">
-      <table class="table">
-        <thead class="">
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Book Title</th>
-            <th scope="col">Author</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Cost</th>
-            <th scope="col">Actions</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let temp of bookList">
-            <td>{{temp.bookId}}</td>
-            <td>{{temp.title}}</td>
-            <td>{{temp.author}}</td>
-            <td>{{temp.quantity}}</td>
-            <td>{{temp.cost}}</td>
-            <td>
-              <button type="button" class="btn btn-primary" >Show Details</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-=======
+<app-customernav></app-customernav>
+<br>
+<br>
 <div class="container p-5">
     <h2>Available books</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -43,7 +16,7 @@
                       <h6 class="card-text">Author: {{temp.author}}</h6>
                       <h6 class="card-text">Genre: {{temp.genre}}</h6>
                       <h6 class="card-text">Cost {{temp.cost | currency}}</h6>
-                      <a href="#" class="btn btn-primary">Rent</a>
+                      <a class="btn btn-primary" (click)="addToList(temp)">Rent</a>
                     </div>
                   </div>
                 </div>
@@ -53,25 +26,35 @@
     </div>
 
 
-    <div class="container p-5">
+    <div class="container p-5" >
         <h2>Current Order</h2>
         <table class="table">
             <thead>
               <tr>
+                
+                <th scope="col">Book Identifier</th>
                 <th scope="col">Title</th>
                 <th scope="col">Author</th>
-                <th scope="col">Cost</th>
+                <th scope="col">Rent</th>
               </tr>
             </thead>
             <tbody>
+              <tr *ngFor="let temp of ordersList">
+               
+               <td>{{temp.bookId}}</td>
+                <td>{{temp.title}}</td>
+               <td>{{temp.author}}</td>
+               <td>{{temp.cost| currency}}</td>
+               
+              </tr>
+             
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th>Total</th>
+                <td></td>
+                <td></td>
+                <td>{{amount | currency}}</td>
               </tr>
             </tbody>
           </table>
-          <button class="btn btn-primary">Submit Order</button>
+          <button class="btn btn-primary" (click)="submitOrder()">Submit Order</button>
     </div>
->>>>>>> bcb1048587f5cd0553974feb9e9a6edf206dd31a
