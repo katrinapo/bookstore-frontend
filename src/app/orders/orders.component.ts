@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { OrdersService } from '../services/orders.service';
+import { BookUser } from '../user';
 import { Orders } from './Orders';
 
 @Component({
@@ -11,6 +12,7 @@ import { Orders } from './Orders';
 export class OrdersComponent implements OnInit {
 
   ordersList: Orders[];
+  customer: BookUser["userName"];
 
   orderGroup = new FormGroup({
     orderId: new FormControl(''),
@@ -28,6 +30,8 @@ export class OrdersComponent implements OnInit {
   orderToApprove = {
     orderId: ""
   }
+
+
   constructor(private oServ: OrdersService) {}
 
   ngOnInit(): void {

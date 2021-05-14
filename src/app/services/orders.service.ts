@@ -33,7 +33,7 @@ export class OrdersService {
   }
 
   public approveOrder(order) {
-    return this.httpCli.put(this.urlBase + '/approve?orderid=', order.orderid)
+    return this.httpCli.put(this.urlBase + '/approve', order)
   }
 }
 

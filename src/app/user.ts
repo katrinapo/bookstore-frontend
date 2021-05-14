@@ -7,6 +7,7 @@ export class BookUser {
     email:string;
     phoneNumber:string;
     userRole:string;
+    static userName: any;
 
     constructor(){/* id:number,username:string,password:string,firstname:string,lastname:string,email:string,phoneNumber:string,userRole:string){
         this.id=id;

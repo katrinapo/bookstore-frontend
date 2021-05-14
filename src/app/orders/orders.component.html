@@ -1,3 +1,5 @@
+<app-employeenav></app-employeenav>
+
 <div class="container p-5">
 <table class="table table-light table-striped">
     <thead>
@@ -6,6 +8,7 @@
             <th scope="col">Total Cost</th>
             <th scope="col">IsApproved</th>
             <th scope="col">Date</th> 
+            <th scope="col">Customer</th> 
             <th scope="col">Actions</th>
         </tr>
     </thead>
@@ -15,6 +18,7 @@
             <td>{{order.totalCost}}</td>
             <td>{{order.isapproved}}</td>
             <td>{{order.date}}</td>
+            <td>{{order.bookuser.userName}}</td> 
            
             <td><button class="btn btn-info" (click)="openModalOrder(order)">Approve</button></td>
         </tr>
