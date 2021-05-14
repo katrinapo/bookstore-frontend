@@ -24,4 +24,16 @@ export class UsersService {
 
 
   }
+
+  public sendEmail(email):Observable<any>{
+    const httpHead = {
+      headers: new HttpHeaders ({
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      })
+    };
+    console.log(email);
+    console.log(typeof(email));
+    return this.httpCli.get<any>("http://localhost:9020/users/forgotpassword1", httpHead)
+  }
 }

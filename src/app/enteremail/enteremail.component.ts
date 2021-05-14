@@ -21,17 +21,18 @@ export class EnteremailComponent implements OnInit {
   }
 
   checkEmail(){
-    this._service.checkIfEmailExists(this.email).subscribe(
-      data =>{console.log("response received");
-              console.log(data);
-      this.message="Please check your email to reset password with the link provided";
-      this._route.navigate(['/enterpassword']);
-    }, 
-    error =>{console.log("Exception occured");
-    this.message="The email you entered does not exist.\n Please enter it again";
+    // this._service.checkIfEmailExists(this.email).subscribe(
+    //   data =>{console.log("response received");
+    //           console.log(data);
+    //   this.message="Please check your email to reset password with the link provided";
+    //   // this._route.navigate(['/enterpassword']);
+      this._service.sendEmail(this.email);
+    // }, 
+    // error =>{console.log("Exception occured");
+    // this.message="The email you entered does not exist.\n Please enter it again";
   }
-    )
-  }
+  //   )
+  // }
 
 
 
