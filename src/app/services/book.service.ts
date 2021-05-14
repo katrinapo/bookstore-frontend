@@ -35,21 +35,7 @@ export class BookService {
 
   public updateBook(book) {
     
-    const httpHead = {
-      headers: new HttpHeaders ({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      })
-    };
-
-    this.httpCli.put(this.urlBase, {
-      "title": book.title,
-      "author": book.author,
-      "genre": book.genre,
-      "cost": book.cost,
-      "quantity": book.quantity,
-    }, httpHead)
-    .subscribe();
+    return this.httpCli.put(this.urlBase + '/updatebook', book)
   }
 
 }
