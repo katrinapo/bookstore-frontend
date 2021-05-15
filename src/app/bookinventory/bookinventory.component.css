@@ -1,4 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+.background {
+    background: linear-gradient(
+        rgba(121, 122, 122, 0.6), 
+        rgba(156, 156, 156, 0.6)
+      ),url(../../assets/books.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 img {
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 10px;
+    border: solid 1px;
+}
+
+.table-container {
+    padding: 3%;
+    background-color: white;
+    border-radius: 10%;
+}
+
+.form-container {
+    padding-top: 2%;
+    background-color: white;
+    border-radius: 10%;
 }

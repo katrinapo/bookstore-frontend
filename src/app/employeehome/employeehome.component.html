@@ -1,27 +1,12 @@
 <app-employeenav></app-employeenav>
 
-Hello  {{msg}}
+<div class="card-container">
+  <div class="card">
 
-<div class="container row">
-    <div class="col-md-6">
-      <table class="table">
-        <thead class="">
-          <tr>
-            <th scope="col">UserName</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Phone number</th>
-            <th scope="col">email</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td>{{user.userName}}</td>
-            <td>{{user.firstName}}</td>
-            <td>{{user.lastName}}</td>
-            <td>{{user.phoneNumber}}</td>
-            <td>{{user.email}}</td>
-          </tr>
-        </tbody>
-      </table>
+        <h4 class="card-title pt-3">Hello Again {{user.firstName}}!</h4>
+          <p>You have orders pending for approval.</p>
+          <p><a class="btn btn-outline-info btn-md" routerLink="/orderList" role="button">Orders</a></p>
     </div>
+</div>
+
+
