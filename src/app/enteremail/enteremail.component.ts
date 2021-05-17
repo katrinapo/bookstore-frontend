@@ -27,6 +27,7 @@ export class EnteremailComponent implements OnInit {
       console.log(this.name);
      }, 
     error =>{console.log("Exception occured");
+    console.log(error.error);
    this.message="The username you entered does not exist.\n Please enter it again";
   }
  )
