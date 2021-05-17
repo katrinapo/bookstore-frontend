@@ -19,6 +19,7 @@ import { EnteremailComponent } from './enteremail/enteremail.component';
 import { CreatepasswordComponent } from './createpassword/createpassword.component';
 
 import { CheckoutComponent } from './checkout/checkout.component';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     RegistrationComponent,
     EnteremailComponent,
     CreatepasswordComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    UploadComponent
 
   ],
   imports: [
@@ -57,7 +59,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
       {path: 'login',component:LoginComponent},
       {path:'enteremail',component:EnteremailComponent},
       {path:'createpassword', component:CreatepasswordComponent},
-      {path:'checkout',component:CheckoutComponent}
+      {path:'checkout',component:CheckoutComponent},
+      {path:'upload',component:UploadComponent}
     ])
 
   ],

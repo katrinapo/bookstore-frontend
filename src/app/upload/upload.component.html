@@ -1,0 +1,14 @@
+
+<div class="Container p-5">
+    <form #imageForm = ngForm>
+        <div class="row">
+            <div class="input-field col s12">
+                <input type ="text" #Caption ngModel name="Caption" id="Caption" required>
+                <label for ="Caption">Caption</label>
+            </div>
+        </div>
+        <img [src]="imageUrl" style="width: 250px;height: 200px">
+        <input type ="file" #Image accept="image/*" (change)="selectFile($event)">
+        <button type="submit" class="btn btn-primary" id="upload_image"  (click)="upload()">Submit</button>
+    </form>
+</div>

@@ -3,6 +3,7 @@
 <div class="p-5 mt-5 background">
   <div class="row pt-5 mt-5">
     <div class="col-md-6 table-container">
+      <h4 class="text-center section-header">Book Inventory</h4>
       <table class="table">
         <thead class="">
           <tr>
@@ -34,7 +35,7 @@
     </div>
     
     <div class="col-md-6 pl-3 form-container">
-      <h4 class="text-center">View Book Details/Add Book</h4>
+      <h4 class="text-center section-header">Add Book</h4>
 
       <form [formGroup] = "bookGroup" class="p-3">
         <!--<div class="form-group">
@@ -78,20 +79,14 @@
                   <h4 class="modal-title">Add Image</h4>
               </div>
               <div class="modal-body">
-              <form [formGroup] = "imageGroup">
-                <input class="form-control" type="text" [(ngModel)]="bookToAddImage.title" formControlName="title" readonly>
-                <div class="input-group mb-3">
-                  <div class="custom-file">
-                    <div class="form-group pt-3">
-                      <input class="form-control-file" type="file" (change)="upload($event)"  formControlName="file" [(ngModel)]="bookToAddImage.image">
-                    </div>
-                  </div>
-                  <div class="input-group-append pt-3">
-                    <button class="input-group-text"  (click)="uploadImage()">Upload</button>
-                  </div>
-                </div>
-    
-              </form>
+
+                <form [formGroup] = "imageGroup" #imageForm = ngForm>
+                  <p [(ngModel)]="bookToAddImage.title" disabled formControlName="title"></p>
+                  <input type ="file" #Image accept="image/*" (change)="selectFile($event)">
+                  <button type="submit" class="btn btn-primary" id="upload_image"  (click)="upload()">Upload</button>
+                  <p><button type="submit" class="btn btn-primary" id="upload_image"  (click)="save()">Save</button></p>
+                </form>
+
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" (click)="closeImageModal()" >Close</button>
               </div>

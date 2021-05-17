@@ -10,7 +10,8 @@ import { Orders } from './Orders';
 })
 export class OrdersComponent implements OnInit {
 
-  ordersList: Orders[];
+  pendingOrdersList: Orders[];
+  approvedOrdersList: Orders[];
 
   orderGroup = new FormGroup({
     orderId: new FormControl(''),
@@ -31,13 +32,20 @@ export class OrdersComponent implements OnInit {
   constructor(private oServ: OrdersService) {}
 
   ngOnInit(): void {
-    this.oServ.getAllOrder().subscribe(
+    this.oServ.getPendingOrders().subscribe(
       response =>{
         console.log(response);
-        this.ordersList=response;
-      }
+        this.pendingOrdersList=response;
+      });
+
+      this.oServ.getApprovedOrders().subscribe(
+        response =>{
+          console.log(response);
+          this.approvedOrdersList=response;
+        }
     )
   }
+
 
   display = "none";
   openModal() {
@@ -63,8 +71,15 @@ export class OrdersComponent implements OnInit {
         console.log(response);
       }
     )
+
     alert("approved!");
     this.onCloseHandled();
+  }
+
+  public setDueDate(){
+    const tomorrow = new Date();
+    tomorrow.setDate(new Date().getDate() + 1)
+    console.log(tomorrow);
   }
 
 }

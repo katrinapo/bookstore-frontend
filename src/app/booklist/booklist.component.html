@@ -1,38 +1,33 @@
 <app-customernav></app-customernav>
-<br>
-<br>
-<div class="container p-5">
-    <h2>Available books</h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="background">
+  <div class="container p-5 mt-5 ">
+    <h2 class="section-header">Available books</h2>
+    <div class="row row-cols-sm-3 g-2">
         <div class="col" *ngFor="let temp of bookList">
-            <div class="card mb-3" style="max-width: 340px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img class="pr-3" src={{temp.image}} alt="...">
-                  </div>
-                  <div class="col-md-8 pl-2 ml-2">
+            <div class="book-card " style="max-width: 340px;">
+                  <div>
                     <div class="card-body">
-                      <h5 class="card-title">{{temp.title}}</h5>
+                      <h5 class="book-card-title">{{temp.title}}</h5>
                       <h6 class="card-text">Author: {{temp.author}}</h6>
                       <h6 class="card-text">Genre: {{temp.genre}}</h6>
                       <h6 class="card-text">Cost {{temp.cost | currency}}</h6>
+                      <img class="pr-3" src={{temp.image}} alt="...">
                       <a class="btn btn-primary" (click)="addToList(temp)">Rent</a>
                     </div>
                   </div>
-                </div>
+             
               </div>
           </div>
         </div>
     </div>
 
 
-    <div class="container p-5" >
-        <h2>Current Order</h2>
-        <table class="table">
+    <div class="container p-5 bg-light table-container" >
+        <h2 class="section-header">Current Order</h2>
+        <table class="table table-fixed">
             <thead>
               <tr>
-                
-                <th scope="col">Book Identifier</th>
+  
                 <th scope="col">Title</th>
                 <th scope="col">Author</th>
                 <th scope="col">Rent</th>
@@ -40,8 +35,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let temp of ordersList">
-               
-               <td>{{temp.bookId}}</td>
+     
                 <td>{{temp.title}}</td>
                <td>{{temp.author}}</td>
                <td>{{temp.cost| currency}}</td>
@@ -58,3 +52,5 @@
           </table>
           <button class="btn btn-primary" (click)="submitOrder()">Submit Order</button>
     </div>
+
+</div>

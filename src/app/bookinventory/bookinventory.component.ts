@@ -37,7 +37,7 @@ export class BookInventoryComponent implements OnInit {
 
   imageGroup = new FormGroup({
     title: new FormControl(''),
-    file: new FormControl('')
+    image: new FormControl('')
   })
 
   display = "none";
@@ -51,13 +51,16 @@ export class BookInventoryComponent implements OnInit {
  
   }
 
-  file: File = null;
+  
   bookToAddImage = {
+    image: "",
     title: "",
-    image: this.file
   }
   constructor(private bookServ: BookService, private uServ : UploadImageServiceService) { }
+  imageUrl: string = "/assets/img/default.jpg";
+  fileToUpload : File = null;
 
+  selectedFiles: FileList;
   ngOnInit(): void {
     this.bookServ.  getAllBooks().subscribe(
       response => {
@@ -68,6 +71,33 @@ export class BookInventoryComponent implements OnInit {
 
   }
 
+  upload() {
+    const file = this.selectedFiles.item(0);
+    this.uServ.uploadFile(file);
+    
+    this.onCloseHandled();
+  }
+
+  save() {
+    const file = this.selectedFiles.item(0);
+    this.bookToAddImage.image = "https://bookimagesbucket.s3.us-east-2.amazonaws.com/" + file.name;
+    this.uServ.addImageToBook(this.bookToAddImage).subscribe()
+  }
+ 
+  selectFile(event) {
+    this.selectedFiles = event.target.files;
+  }
+
+  handleFileInput(file: FileList) {
+    this.fileToUpload = file.item(0);
+   
+    //Show image preview
+    var reader = new FileReader();
+    reader.onload = (event:any) => {
+      this.imageUrl = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+  }
   openImageModal(book) {
     this.display1 = "block";
     this.selectBook(book);
@@ -112,15 +142,6 @@ export class BookInventoryComponent implements OnInit {
     this.onCloseHandled();
   }
 
-  public uploadImage() {
-    console.log("upload clicked");
-    this.uServ.pushFileToStorage( this.bookToAddImage.title, this.bookToAddImage.image).subscribe(
-      response => {
-        console.log(response);
-      }
-    )
-  }
-
   public edit(book) {
     this.bookToUpdate = book;
   }
@@ -129,15 +150,5 @@ export class BookInventoryComponent implements OnInit {
     this.bookToAddImage = book;
   }
  
-  upload(event: Event) {
-      const target = event.target as HTMLInputElement;
-      const files = target.files[0];
-      console.log(files);
-  }
-
-  upload2(file)
- { console.log('file'+':'+file.value) 
-   const inputNode = file.value.replace("C:\\fakepath\\", "");
-   console.log(inputNode);
- }
+  
 }
