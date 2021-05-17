@@ -7,10 +7,10 @@
     <div class="row justify-content-center">
       <div class="col-md-5">
         <form #emailForm="ngForm" (ngSubmit)="checkEmail()">
-            <legend>Please enter e-mail to reset password</legend>
+            <legend>Please enter Username to reset password</legend>
             <div class="mb-3">
 
-              <input type="email" class="form-control" id="exampleInputEmail1" name = "email" [(ngModel)]="email"  aria-describedby="emailHelp">
+              <input type="email" class="form-control" id="exampleInputEmail1" name = "email" [(ngModel)]="name"  aria-describedby="emailHelp">
 
             </div>
             <small class="text-danger">
