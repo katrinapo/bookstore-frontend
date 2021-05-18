@@ -1,1 +1,59 @@
-<p>booklist works!</p>
+<app-customernav></app-customernav>
+<div class="background">
+  <div class="container p-5 mt-5 ">
+    <h2 class="section-header">Available books</h2>
+    <div class="row row-cols-sm-3 g-2">
+        <div class="col" *ngFor="let book of bookList">
+            <div class="book-card " style="max-width: 340px;">
+                  <div>
+                    <div class="card-body">
+                      <h5 class="book-card-title">{{book.title}}</h5>
+                      <h6 class="card-text">Author: {{book.author}}</h6>
+                      <h6 class="card-text">Genre: {{book.genre}}</h6>
+                      <h6 class="card-text">Cost {{book.cost | currency}}</h6>
+                      <img class="pr-3" src={{book.image}} alt="...">
+                      <a *ngIf="book.quantity > 0" class="btn btn-primary" (click)="addToList(book)">Rent</a>
+                      
+                      <div *ngIf="book.quantity < 1"><p>Currently unavailable!</p>
+                        <small>Check back soon if someone has returned a copy!</small></div>
+                    </div>
+                  </div>
+             
+              </div>
+          </div>
+        </div>
+    </div>
+
+
+    <div class="container p-5 bg-light table-container" >
+        <h2 class="section-header">Current Order</h2>
+        <table class="table table-fixed">
+            <thead>
+              <tr>
+  
+                <th scope="col">Title</th>
+                <th scope="col">Author</th>
+                <th scope="col">Rent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let temp of ordersList">
+     
+                <td>{{temp.title}}</td>
+               <td>{{temp.author}}</td>
+               <td>{{temp.cost| currency}}</td>
+               
+              </tr>
+             
+              <tr>
+                <th>Total</th>
+                <td></td>
+                <td></td>
+                <td>{{amount | currency}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-primary" (click)="submitOrder()">Submit Order</button>
+    </div>
+
+</div>

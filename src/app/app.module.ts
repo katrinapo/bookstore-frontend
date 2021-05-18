@@ -12,6 +12,17 @@ import { BookInventoryComponent } from './bookinventory/bookinventory.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdersComponent } from './orders/orders.component';
+
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { EnteremailComponent } from './enteremail/enteremail.component';
+import { CreatepasswordComponent } from './createpassword/createpassword.component';
+
+import { CheckoutComponent } from './checkout/checkout.component';
+import { UploadComponent } from './upload/upload.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,12 +33,22 @@ import { OrdersComponent } from './orders/orders.component';
     EmployeenavComponent,
     BookInventoryComponent,
     BooklistComponent,
-    OrdersComponent
+    OrdersComponent,
+
+    LoginComponent,
+    RegistrationComponent,
+    EnteremailComponent,
+    CreatepasswordComponent,
+    CheckoutComponent,
+    UploadComponent,
+
   ],
   imports: [
     BrowserModule, 
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     RouterModule.forRoot([
       {path: 'app', component: AppComponent},
@@ -35,8 +56,17 @@ import { OrdersComponent } from './orders/orders.component';
       {path: 'customerhome',component: CustomerhomeComponent},
       {path: 'employeehome',component: EmployeehomeComponent},
       {path: 'bookinventory',component: BookInventoryComponent},
-      {path: 'orderList',component: OrdersComponent}
+      {path: 'orderList',component: OrdersComponent},
+      {path: 'orderList',component: OrdersComponent},
+      {path: 'registration',component: RegistrationComponent},
+      {path: '',component:LoginComponent},
+      {path: 'login',component:LoginComponent},
+      {path:'enteremail',component:EnteremailComponent},
+      {path:'createpassword', component:CreatepasswordComponent},
+      {path:'checkout',component:CheckoutComponent},
+      {path:'upload',component:UploadComponent}
     ])
+
   ],
   providers: [
 

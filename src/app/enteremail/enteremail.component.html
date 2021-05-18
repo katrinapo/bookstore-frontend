@@ -1,0 +1,24 @@
+<div class="card-container">
+  <div class="card">
+
+              <form #emailForm="ngForm" (ngSubmit)="checkEmail()">
+            <legend>Please enter your username to reset password</legend>
+            <div class="mb-3">
+  
+              <input type="email" class="form-control" id="exampleInputEmail1" name = "email" [(ngModel)]="name"  aria-describedby="emailHelp">
+  
+            </div>
+            <small class="text-danger">
+                {{message}}
+            </small>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-outline-info">Submit</button>
+            <hr>
+            <button type="submit"  [routerLink]="['/login']" class="btn btn-outline-info">Return to Login page</button>
+       
+          </form>
+    </div>
+</div>
+
+

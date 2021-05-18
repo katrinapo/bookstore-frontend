@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+
+.section-header {
+    font-family: 'Fredericka the Great', cursive;
+}
+
+img {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.background {
+    background: linear-gradient(
+      rgba(59, 255, 213, 0.7), 
+      rgba(181, 67, 226, 0.7)
+      ),url(../../assets/books.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.book-card {
+    display: flex;
+    align-items: center;
+    background: #f4f4f4;
+    width: 100%;
+    max-width: 400px;
+    padding: 2em;
+    border-radius: 20px;
+    font-family: "poppins", Arial, Helvetica, sans-serif;
+    opacity: 90%;
+  }
+  
+  .bookcard-title {
+   
+    color: #565656;
+    align-items: center;
+  }
+  
+  .card-subtitle {
+    color: #565656;
+  }
+  
+  .table-container {
+    border-radius: 20%;
+    opacity: 70%;
+  }

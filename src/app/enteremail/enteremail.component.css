@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
+
+
+.welcome-header {
+    font-family: 'Rajdhani', sans-serif;
+}
+
+p {
+    font-family: "poppins", Arial, Helvetica, sans-serif;
+}
+.jumbotron {
+    width:100%;
+     height: 99vh;
+     display:table;
+}
+   
+
+.jumbotron .container {
+     display:table-cell;
+     vertical-align:middle;
+     text-align: center;
+}
+   
+.card-container {
+    background: linear-gradient(
+      rgba(59, 255, 213, 0.7), 
+      rgba(181, 67, 226, 0.7)
+      ),url(../../assets/books.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  font-family: "poppins", Arial, Helvetica, sans-serif;
+  place-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f4f4f4;
+  max-width: 600px;
+  padding: 2em;
+  border-radius: 20px;
+ 
+}
+
+.card-title {
+ 
+  color: #565656;
+  align-items: center;
+}
+
+.card-subtitle {
+  color: #565656;
+}
+

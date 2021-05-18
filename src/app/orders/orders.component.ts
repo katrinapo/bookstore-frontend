@@ -10,25 +10,71 @@ import { Orders } from './Orders';
 })
 export class OrdersComponent implements OnInit {
 
-  ordersList: Orders[];
+  pendingOrdersList: Orders[];
+  approvedOrdersList: Orders[];
+  
   orderGroup = new FormGroup({
-
-    orderid: new FormControl(''),
+    orderId: new FormControl(''),
     totalcost: new FormControl(''),
     isapproved: new FormControl(''),
     date: new FormControl(''),
-
+  
   });
+
+  approveGroup = new FormGroup({
+    orderId: new FormControl(''),
+  });
+
+
+  orderToApprove = {
+    orderId: ""
+  }
   constructor(private oServ: OrdersService) {}
 
   ngOnInit(): void {
-    this.oServ.getAllOrder().subscribe(
+    this.oServ.getPendingOrders().subscribe(
       response =>{
         console.log(response);
-        this.ordersList=response;
-      }
+        this.pendingOrdersList=response;
+      });
+
+      this.oServ.getApprovedOrders().subscribe(
+        response =>{
+          console.log(response);
+          this.approvedOrdersList=response;
+        }
     )
   }
 
+  reloadCurrentPage() {
+    window.location.reload();
+   }
+  display = "none";
+  openModal() {
+    this.display = "block";
+  }
+  onCloseHandled() {
+    this.display = "none";
+  }
+
+  openModalOrder(order) {
+    this.openModal();
+    this.select(order);
+    
+  }
+
+  public select(order) {
+    this.orderToApprove = order;
+  }
+
+  public approveOrder() {
+    this.oServ.approveOrder(this.orderToApprove).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
+    this.reloadCurrentPage();
+    this.onCloseHandled();
+  }
 
 }

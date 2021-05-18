@@ -1,33 +1,88 @@
-<table class="table table-dark table-striped">
-    <thead>
-        <tr>
-            <th scope="col">Order Id</th>
-            <th scope="col">Total Cost</th>
-            <th scope="col">IsApproved</th>
-            <th scope="col">Date</th> 
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let temp of ordersList">
-            <td>{{temp.orderid}}</td>
-            <td>{{temp.totalcost}}</td>
-            <td>{{temp.isapproved}}</td>
-            <td>{{temp.date}}</td>
-        </tr>
-    </tbody>
-  </table>
-<div>
-  <!--  <form [formGroup] = "orderGroup">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Order id</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="orderid">
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Total Cost</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" formControlName="totalcost">
-        </div>
-        <button type="submit" class="btn btn-primary" (click) = "submitOrder(orderGroup)">Submit</button>
-      </form>
-      -->
+<div class="background">
+  <app-employeenav></app-employeenav>
+  <div class="container p-5 mt-5">
+    <div class="table-container pt-5">
+      <h2>Pending Orders</h2>
+        <table class="table table-light table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Order Id</th>
+                    <th scope="col">Order Items</th>
+                    <th scope="col">Total Cost</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Date</th> 
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let bookorder of pendingOrdersList">
+                    <td>{{bookorder.orderId}}</td>
+                    <span><td *ngFor="let book of bookorder.books">{{'‣'+book.title+' '}}</td></span>
+                    <td>{{bookorder.totalCost}}</td>
+                    <td *ngIf="bookorder.isapproved">Ready</td>
+                    <td *ngIf="!bookorder.isapproved">Pending</td>
+                    <td>{{bookorder.date}}</td>
+                  
+                    <td><button class="btn btn-info" (click)="openModalOrder(order)">Approve</button></td>
+                </tr>
+            </tbody>
+          </table>
+    </div>
+    
+    <div class="table-container card">
+      <h2>Approved Orders</h2>
+      <div id="style-2">
+        <table class="table">
+          <thead>
+              <tr>
+                  <th scope="col">Order Id</th>
+                  <th scope="col">Customer</th>
+                  <th scope="col">Order Items</th>
+                  <th scope="col">Total Cost</th>
+                  <th scope="col">Date</th> 
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let bookorder of approvedOrdersList">
+                  <td>{{bookorder.orderId}}</td>
+                  <td>{{bookorder.bookuser.firstName}}</td>
+                  <span><td *ngFor="let book of bookorder.books">{{'‣'+book.title+' '}}</td></span>
+                  <td>{{bookorder.totalCost}}</td>
+                  <td>{{bookorder.date}}</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+     
+    </div>
+  
+  
+  
+    <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+      <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                     <div class="modal-header">
+                         <h4 class="modal-title">Approve Order</h4>
+                           <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                          </div>
+                 <div class="modal-body">
+                   <form [formGroup] = "approveGroup">
+                  <input class="form-control" type="text" [(ngModel)]="orderToApprove.orderId" formControlName="orderId" readonly>
+                  
+                  <button class="btn btn-info" (click)=approveOrder()>Approve</button>
+                </form>
+                   <div>
+                   </div>
+                   </div>
+                     <div class="modal-footer">
+                       <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
+                     </div>
+             </div>
+       </div>  
+  <div>
+  <div>
+  </div>
+  </div>
+  
 </div>
 

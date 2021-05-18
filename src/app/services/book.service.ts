@@ -1,14 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Book } from '../bookinventory/book';
+import { Book } from '../book';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
 
-  private urlBase = "http://localhost:9020/books"
+  private urlBase = "http://13.59.41.118:9020/books"
   constructor(private httpCli: HttpClient) { }
 
   public getAllBooks(): Observable<Book[]> {
@@ -32,4 +32,10 @@ export class BookService {
     };
     return this.httpCli.post<Book>(this.urlBase,book, httpHead);
   }
+
+  public updateBook(book) {
+    
+    return this.httpCli.put(this.urlBase + '/updatebook', book)
+  }
+
 }

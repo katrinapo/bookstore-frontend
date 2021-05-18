@@ -1,1 +1,40 @@
 <app-customernav></app-customernav>
+
+<div class="background">
+  <div class="card-container pt-5 mt-5">
+    <div class="card">
+          <h4 class="card-title pt-3">Welcome Back {{user.firstName}} {{user.lastName}}!</h4>
+          <p>Username: {{user.userName}}</p>
+          <p>Phone: {{user.phoneNumber}}</p>
+          <p>E-mail: {{user.email}}</p>
+      </div>
+  
+      <div class="container p-1 table-container" id="style-2">
+        <table class="table table-light">
+            <thead>
+                <tr>
+                    <th scope="col">Order Id</th>
+                    <th scope="col">Total Cost</th>
+                    <th scope="col">Ready for pick up</th>
+                    <th scope="col">Date Ordered</th> 
+                  
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let temp of ordersList">
+                    <td>{{temp.orderId}}</td>
+                    <td>{{temp.totalCost}}</td>
+                    <td>{{temp.isapproved}}</td>
+                    <td>{{temp.date}}</td>
+               
+                </tr>
+            </tbody>
+          </table>
+        <div>
+  </div>
+  
+</div>
+
+
+
+

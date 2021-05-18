@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap');
+a {
+    text-decoration: none;
+    color: black;
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+p {
+    font-family: 'M PLUS 1p', sans-serif;
+}
+
+.logo {
+    font-family: 'Fredericka the Great', cursive;
+}
+
