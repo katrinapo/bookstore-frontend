@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subscriber } from 'rxjs';
 import { Book } from '../book';
+import { NotificationService } from '../notification.service';
 import { BookService } from '../services/book.service';
 import { UploadImageServiceService } from '../services/upload-image-service.service';
 
@@ -56,7 +57,7 @@ export class BookInventoryComponent implements OnInit {
     image: "",
     title: "",
   }
-  constructor(private bookServ: BookService, private uServ : UploadImageServiceService) { }
+  constructor(private bookServ: BookService, private uServ : UploadImageServiceService, private nServ : NotificationService) { }
   imageUrl: string = "/assets/img/default.jpg";
   fileToUpload : File = null;
 
@@ -74,7 +75,7 @@ export class BookInventoryComponent implements OnInit {
   upload() {
     const file = this.selectedFiles.item(0);
     this.uServ.uploadFile(file);
-    
+    this.showToasterSuccess();
     this.onCloseHandled();
   }
 
@@ -90,7 +91,7 @@ export class BookInventoryComponent implements OnInit {
 
   handleFileInput(file: FileList) {
     this.fileToUpload = file.item(0);
-   
+
     //Show image preview
     var reader = new FileReader();
     reader.onload = (event:any) => {
@@ -150,5 +151,12 @@ export class BookInventoryComponent implements OnInit {
     this.bookToAddImage = book;
   }
  
+showToasterSuccess(){
+    this.nServ.showSuccess("Data shown successfully !!", "http://localhost:4200/")
+}
+
+showToasterError(){
+    this.nServ.showError("Something is wrong", "http://localhost:4200/")
+}
   
 }

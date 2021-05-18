@@ -20,6 +20,8 @@ import { CreatepasswordComponent } from './createpassword/createpassword.compone
 
 import { CheckoutComponent } from './checkout/checkout.component';
 import { UploadComponent } from './upload/upload.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -38,13 +40,15 @@ import { UploadComponent } from './upload/upload.component';
     EnteremailComponent,
     CreatepasswordComponent,
     CheckoutComponent,
-    UploadComponent
+    UploadComponent,
 
   ],
   imports: [
     BrowserModule, 
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     RouterModule.forRoot([
       {path: 'app', component: AppComponent},

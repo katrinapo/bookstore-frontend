@@ -3,16 +3,19 @@
   <div class="container p-5 mt-5 ">
     <h2 class="section-header">Available books</h2>
     <div class="row row-cols-sm-3 g-2">
-        <div class="col" *ngFor="let temp of bookList">
+        <div class="col" *ngFor="let book of bookList">
             <div class="book-card " style="max-width: 340px;">
                   <div>
                     <div class="card-body">
-                      <h5 class="book-card-title">{{temp.title}}</h5>
-                      <h6 class="card-text">Author: {{temp.author}}</h6>
-                      <h6 class="card-text">Genre: {{temp.genre}}</h6>
-                      <h6 class="card-text">Cost {{temp.cost | currency}}</h6>
-                      <img class="pr-3" src={{temp.image}} alt="...">
-                      <a class="btn btn-primary" (click)="addToList(temp)">Rent</a>
+                      <h5 class="book-card-title">{{book.title}}</h5>
+                      <h6 class="card-text">Author: {{book.author}}</h6>
+                      <h6 class="card-text">Genre: {{book.genre}}</h6>
+                      <h6 class="card-text">Cost {{book.cost | currency}}</h6>
+                      <img class="pr-3" src={{book.image}} alt="...">
+                      <a *ngIf="book.quantity > 0" class="btn btn-primary" (click)="addToList(book)">Rent</a>
+                      
+                      <div *ngIf="book.quantity < 1"><p>Currently unavailable!</p>
+                        <small>Check back soon if someone has returned a copy!</small></div>
                     </div>
                   </div>
              

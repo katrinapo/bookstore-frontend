@@ -36,16 +36,7 @@ a {
 }
 
 
-.card {
-  display: flex;
-  align-items: center;
-  background: #f4f4f4;
-  width: 100%;
-  max-width: 400px;
-  padding: 1em;
-  border-radius: 20px;
- 
-}
+
 
 .card-title {
  

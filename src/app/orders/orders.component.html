@@ -1,5 +1,5 @@
-<app-employeenav></app-employeenav>
 <div class="background">
+  <app-employeenav></app-employeenav>
   <div class="container p-5 mt-5">
     <div class="table-container pt-5">
       <h2>Pending Orders</h2>
@@ -7,6 +7,7 @@
             <thead>
                 <tr>
                     <th scope="col">Order Id</th>
+                    <th scope="col">Order Items</th>
                     <th scope="col">Total Cost</th>
                     <th scope="col">Status</th>
                     <th scope="col">Date</th> 
@@ -14,13 +15,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let order of pendingOrdersList">
-                    <td>{{order.orderId}}</td>
-                    <td>{{order.totalCost}}</td>
-                    <!--<td>{{order.isapproved}}</td>-->
-                    <td *ngIf="order.isapproved">Ready</td>
-                    <td *ngIf="!order.isapproved">Pending</td>
-                    <td>{{order.date}}</td>
+                <tr *ngFor="let bookorder of pendingOrdersList">
+                    <td>{{bookorder.orderId}}</td>
+                    <span><td *ngFor="let book of bookorder.books">{{'‣'+book.title+' '}}</td></span>
+                    <td>{{bookorder.totalCost}}</td>
+                    <td *ngIf="bookorder.isapproved">Ready</td>
+                    <td *ngIf="!bookorder.isapproved">Pending</td>
+                    <td>{{bookorder.date}}</td>
                   
                     <td><button class="btn btn-info" (click)="openModalOrder(order)">Approve</button></td>
                 </tr>
@@ -28,22 +29,26 @@
           </table>
     </div>
     
-    <div class="table-container">
+    <div class="table-container card">
       <h2>Approved Orders</h2>
       <div id="style-2">
-        <table class="table table-light table-striped">
+        <table class="table">
           <thead>
               <tr>
                   <th scope="col">Order Id</th>
+                  <th scope="col">Customer</th>
+                  <th scope="col">Order Items</th>
                   <th scope="col">Total Cost</th>
                   <th scope="col">Date</th> 
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let order of approvedOrdersList">
-                  <td>{{order.orderId}}</td>
-                  <td>{{order.totalCost}}</td>
-                  <td>{{order.date}}</td>
+              <tr *ngFor="let bookorder of approvedOrdersList">
+                  <td>{{bookorder.orderId}}</td>
+                  <td>{{bookorder.bookuser.firstName}}</td>
+                  <span><td *ngFor="let book of bookorder.books">{{'‣'+book.title+' '}}</td></span>
+                  <td>{{bookorder.totalCost}}</td>
+                  <td>{{bookorder.date}}</td>
               </tr>
           </tbody>
         </table>

@@ -12,13 +12,13 @@ export class OrdersComponent implements OnInit {
 
   pendingOrdersList: Orders[];
   approvedOrdersList: Orders[];
-
+  
   orderGroup = new FormGroup({
     orderId: new FormControl(''),
     totalcost: new FormControl(''),
     isapproved: new FormControl(''),
     date: new FormControl(''),
-
+  
   });
 
   approveGroup = new FormGroup({
@@ -46,7 +46,9 @@ export class OrdersComponent implements OnInit {
     )
   }
 
-
+  reloadCurrentPage() {
+    window.location.reload();
+   }
   display = "none";
   openModal() {
     this.display = "block";
@@ -71,15 +73,8 @@ export class OrdersComponent implements OnInit {
         console.log(response);
       }
     )
-
-    alert("approved!");
+    this.reloadCurrentPage();
     this.onCloseHandled();
-  }
-
-  public setDueDate(){
-    const tomorrow = new Date();
-    tomorrow.setDate(new Date().getDate() + 1)
-    console.log(tomorrow);
   }
 
 }
