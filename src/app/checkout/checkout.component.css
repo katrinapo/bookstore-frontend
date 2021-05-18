@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap");
+
+
+.section-header {
+    font-family: 'Fredericka the Great', cursive;
+}
+
+.background {
+    background: linear-gradient(
+        rgba(59, 255, 213, 0.7), 
+        rgba(181, 67, 226, 0.7)
+        ),url(../../assets/books.jpg) no-repeat center center fixed; 
+
+}
+
+
+
+
