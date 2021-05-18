@@ -53,7 +53,7 @@ export class UploadImageServiceService {
   }
 
   addImageToBook(book) {
-    return this.httpCli.put("http://localhost:9020/books/addImage", book)
+    return this.httpCli.put("http://13.59.41.118:9020/books/addImage", book)
   }
 
 

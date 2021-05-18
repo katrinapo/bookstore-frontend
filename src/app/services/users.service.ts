@@ -10,7 +10,7 @@ import { BookUser } from '../user';
 })
 export class UsersService {
 
-  private urlBase = "http://localhost:9020/users/email/?email=";
+  private urlBase = "http://13.59.41.118:9020/users/email/?email=";
   constructor(private httpCli: HttpClient) { }
 
   public checkIfEmailExists(email):Observable<BookUser[]>{
@@ -22,7 +22,7 @@ export class UsersService {
       })
     };
 
-    return this.httpCli.get<BookUser[]>("http://localhost:9020/users/email/?email="+email,httpHead)
+    return this.httpCli.get<BookUser[]>("http://13.59.41.118:9020/users/email/?email="+email,httpHead)
 
 
   }
@@ -36,7 +36,7 @@ export class UsersService {
     };
     // console.log(name);
     // console.log(typeof(name));
-    return this.httpCli.post<string>("http://localhost:9020/users/forgotpassword1/"+name,httpHead)
+    return this.httpCli.post<string>("http://13.59.41.118:9020/users/forgotpassword1/"+name,httpHead)
   }
 
   public updatePassword(token,password):Observable<string>{
@@ -47,7 +47,7 @@ export class UsersService {
       })
     };
 
-    return this.httpCli.post<string>("http://localhost:9020/users/resetpassword?token="+token+"&password="+password,httpHead)
+    return this.httpCli.post<string>("http://13.59.41.118:9020/users/resetpassword?token="+token+"&password="+password,httpHead)
   }
 
 }

@@ -12,7 +12,7 @@ export class RegistrationService {
 
   public loginUserFromRemote(user:BookUser):Observable<any>{
     
-      return this._http.post<any>("http://localhost:9020/users/login",user)
+      return this._http.post<any>("http://13.59.41.118:9020/users/login",user)
   }
 
   public registerUserInDatabase(user: string):Observable<BookUser>{
@@ -22,7 +22,7 @@ export class RegistrationService {
         'Access-Control-Allow-Origin': '*'
       })
     };
-    return this._http.post<BookUser>("http://localhost:9020/users/register",user,httpHead)
+    return this._http.post<BookUser>("http://13.59.41.118:9020/users/register",user,httpHead)
   }
   
  
@@ -35,6 +35,6 @@ export class RegistrationService {
       })
     };
 
-    return this._http.get<BookUser>("http://localhost:9020/users/username/?username="+localStorage.getItem('userName'),httpHead)
+    return this._http.get<BookUser>("http://13.59.41.118:9020/users/username/?username="+localStorage.getItem('userName'),httpHead)
   }
 }

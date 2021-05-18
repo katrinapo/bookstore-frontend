@@ -9,7 +9,7 @@ import { Orders } from '../orders/Orders';
 })
 export class OrdersService {
 
-  private urlBase = "http://localhost:9020/bookorders";
+  private urlBase = "http://13.59.41.118:9020/bookorders";
   constructor(private httpCli: HttpClient) { }
 
   public getAllOrder(): Observable<Orders[]> {
@@ -52,7 +52,7 @@ export class OrdersService {
       'Access-Control-Allow-Origin':'*'
       })
     };
-    return this.httpCli.post('http://localhost:9020/bookorders/submitorder?amount='+amount+"&userName="+localStorage.getItem('userName'), bookList, httpHead);
+    return this.httpCli.post('http://13.59.41.118:9020/bookorders/submitorder?amount='+amount+"&userName="+localStorage.getItem('userName'), bookList, httpHead);
   }
 
 

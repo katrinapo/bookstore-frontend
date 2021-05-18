@@ -8,7 +8,7 @@ import { Book } from '../book';
 })
 export class BookService {
 
-  private urlBase = "http://localhost:9020/books"
+  private urlBase = "http://13.59.41.118:9020/books"
   constructor(private httpCli: HttpClient) { }
 
   public getAllBooks(): Observable<Book[]> {
