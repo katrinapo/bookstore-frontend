@@ -152,7 +152,7 @@ export class BookInventoryComponent implements OnInit {
   }
  
 showToasterSuccess(){
-    this.nServ.showSuccess("Data shown successfully !!", "http://localhost:4200/")
+    this.nServ.showSuccess("updated !!", "Successful!")
 }
 
 showToasterError(){
