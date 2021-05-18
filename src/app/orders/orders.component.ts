@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { OrdersService } from '../services/orders.service';
+import { BookUser } from '../user';
 import { Orders } from './Orders';
 
 @Component({
@@ -12,13 +13,14 @@ export class OrdersComponent implements OnInit {
 
   pendingOrdersList: Orders[];
   approvedOrdersList: Orders[];
-  
+  customer: BookUser["userName"];
+
   orderGroup = new FormGroup({
     orderId: new FormControl(''),
     totalcost: new FormControl(''),
     isapproved: new FormControl(''),
     date: new FormControl(''),
-  
+
   });
 
   approveGroup = new FormGroup({
@@ -29,6 +31,8 @@ export class OrdersComponent implements OnInit {
   orderToApprove = {
     orderId: ""
   }
+
+
   constructor(private oServ: OrdersService) {}
 
   ngOnInit(): void {
@@ -46,9 +50,6 @@ export class OrdersComponent implements OnInit {
     )
   }
 
-  reloadCurrentPage() {
-    window.location.reload();
-   }
   display = "none";
   openModal() {
     this.display = "block";
@@ -66,7 +67,9 @@ export class OrdersComponent implements OnInit {
   public select(order) {
     this.orderToApprove = order;
   }
-
+  reloadCurrentPage() {
+    window.location.reload();
+   }
   public approveOrder() {
     this.oServ.approveOrder(this.orderToApprove).subscribe(
       response => {
@@ -76,5 +79,4 @@ export class OrdersComponent implements OnInit {
     this.reloadCurrentPage();
     this.onCloseHandled();
   }
-
 }
