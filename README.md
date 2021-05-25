@@ -27,5 +27,8 @@ Future to-dos:
 * Chandra Shrestha
 * Katrina Po
 
-
+## Getting Started
+* clone the repository (git clone https://github.com/katrinapo/bookstore-frontend.git)
+* run command: npm install
+* run command: ng serve
 
