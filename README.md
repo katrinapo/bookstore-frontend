@@ -21,6 +21,11 @@ Future to-dos:
 * Customers can either purchase books at retail price or rent them
 * Administrators can filter orders based on customer
 
+## Contributors
+* Mantesh Sandhu
+* Veerpal Kaur
+* Chandra Shrestha
+* Katrina Po
 
 
 
