@@ -5,14 +5,8 @@ Book Central is an application that allows customers to rent books at an afforda
 This is the front-end application that fetches data from back end endpoints created from a Spring Boot Application that can be found here: https://github.com/katrinapo/bookstore-backend
 
 ## Technologies Used
-* Java
-* Spring Boot
-* Spring Data
-* JUnit
-* Log4J
-* Maven
-* PostgreSQL
 * Angular
+* HTML, CSS
 
 ## Features
 List of features ready and TODOs for future development
