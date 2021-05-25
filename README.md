@@ -1,27 +1,32 @@
-# BookstoreFrontend
+# Book Central Angular Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
+Book Central is an application that allows customers to rent books at an affordable cost, allowing them to read trending books without having to pay full retail prices. It allows for two types of users, customers and employees. The customers are able to browse available books and select them to be rented. Employees are able to update the book inventory, by adding or editing books. The are also able to view customer orders and approve them accordingly.
 
-## Development server
+This is the front-end application that fetches data from back end endpoints created from a Spring Boot Application that can be found here: https://github.com/katrinapo/bookstore-backend
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Technologies Used
+* Java
+* Spring Boot
+* Spring Data
+* JUnit
+* Log4J
+* Maven
+* PostgreSQL
+* Angular
 
-## Code scaffolding
+## Features
+List of features ready and TODOs for future development
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* Customers can browse books 
+* Customers can select books to rent, submit order and view total of rental order
+* Customers can view past orders and view whether or not they are ready for pick up
+* Administrators can manage the book inventory by adding books, or editing books
+* Administrators can view book rental orders and approve them for pick-up
 
-## Build
+Future to-dos:
+* Customers can either purchase books at retail price or rent them
+* Administrators can filter orders based on customer
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
